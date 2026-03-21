@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Hector & Bianca • Wedding</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #f7f4ef;
+      --text: #222222;
+      --accent: #b88a4a;
+      --accent-soft: #e9dcc6;
+      --white: #ffffff;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "Montserrat", system-ui, -apple-system, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    /* HEADER – names + nav */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(247, 244, 239, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .header-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0.75rem 1.25rem 0.9rem;
+      text-align: center;
+    }
+
+    .site-title {
+      font-family: "Playfair Display", serif;
+      font-size: 1.3rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+    }
+
+    nav ul {
+      list-style: none;
+      display: inline-flex;
+      gap: 1.6rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    nav a {
+      position: relative;
+      padding-bottom: 0.2rem;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      background: var(--accent);
+      transition: width 0.25s ease;
+    }
+
+    nav a.active::after,
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* HERO – slideshow background */
+    .hero {
+      min-height: 68vh;
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: 50% 50%;
+      background-repeat: no-repeat;
+      filter: brightness(0.7);
+      transform: scale(1.02);
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .hero-bg-a { opacity: 1; }
+
+    .hero-overlay {
+      position: relative;
+      max-width: 1120px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 4rem 1.25rem 4.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .hero-monogram {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(3rem, 6vw, 4.5rem);
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+
+    .hero-sub {
+      margin-top: 0.8rem;
+      font-size: 0.9rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.9);
+    }
+
+    /* MAIN LAYOUT */
+    main {
+      max-width: 1120px;
+      margin: 3rem auto 4rem;
+      padding: 0 1.25rem;
+    }
+
+    section { margin-bottom: 3.5rem; }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 1.75rem;
+    }
+
+    .section-eyebrow {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: #777;
+      margin-bottom: 0.25rem;
+    }
+
+    .section-title {
+      font-family: "Playfair Display", serif;
+      font-size: 1.7rem;
+      letter-spacing: 0.04em;
+    }
+
+    /* TWO-COLUMN */
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 2.3rem;
+      align-items: center;
+    }
+
+    .two-col p { font-size: 0.95rem; margin-bottom: 0.9rem; }
+
+    .frame {
+      border-radius: 18px;
+      padding: 0.6rem;
+      background: linear-gradient(135deg, var(--accent-soft), #f1e3cd);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.14);
+    }
+
+    .frame img {
+      border-radius: 14px;
+      object-fit: cover;
+    }
+
+    /* CARDS */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.3rem;
+    }
+
+    .card {
+      background: #fdfaf5;
+      border-radius: 16px;
+      padding: 1.35rem 1.2rem;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.06);
+      border: 1px solid rgba(0,0,0,0.04);
+      font-size: 0.92rem;
+    }
+
+    .card-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: #777;
+      margin-bottom: 0.35rem;
+    }
+
+    .card-title {
+      font-family: "Playfair Display", serif;
+      font-size: 1.1rem;
+      margin-bottom: 0.3rem;
+    }
+
+    /* Registry / RSVP link style */
+    .registry-link {
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--accent);
+      display: inline-block;
+      padding-bottom: 0.15rem;
+      margin-top: 0.7rem;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid rgba(0,0,0,0.06);
+      padding: 1.6rem 1.25rem 2rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: #777;
+    }
+
+    footer span {
+      font-family: "Playfair Display", serif;
+      color: var(--accent);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 800px) {
+      .hero-overlay {
+        justify-content: center;
+        text-align: center;
+      }
+      .two-col {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      main { margin-top: 2.3rem; }
+      .hero-bg { background-position: 50% 36%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+      <div class="site-title">HECTOR &amp; BIANCA</div>
+      <nav>
+        <ul>
+          <li><a href="#home" class="active">Home</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="#schedule">Schedule</a></li>
+          <li><a href="#dress-code">Dress Code</a></li>
+          <li><a href="wedding-party.html">Wedding Party</a></li>
+          <li><a href="#travel">Travel</a></li>
+          <li><a href="#registry">Registry</a></li>
+          <li><a href="#faqs">FAQs</a></li>
+          <li>
+            <a href="https://www.theknot.com/us/hector-portela-and-bianca-zavalza-oct-2026/rsvp"
+               target="_blank" rel="noopener">
+              RSVP
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO with slideshow background -->
+  <section class="hero" id="home">
+    <div class="hero-bg hero-bg-a"></div>
+    <div class="hero-bg hero-bg-b"></div>
+
+    <div class="hero-overlay">
+      <div>
+        <div class="hero-monogram">H &amp; B</div>
+        <div class="hero-sub">
+          October 3, 2026 • Bally Keal Estate • Napa, California
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main>
+
+    <!-- WELCOME / ABOUT -->
+    <section>
+      <div class="section-heading">
+        <div class="section-eyebrow">Welcome</div>
+        <h2 class="section-title">We’re So Glad You’re Here</h2>
+      </div>
+
+      <div class="two-col">
+        <div>
+          <p>
+            Somewhere between long drives, inside jokes, and dreaming about the future,
+            we realized we didn’t want to do life without each other. Now we’re counting
+            down to celebrating with all of you in Napa.
+          </p>
+          <p>
+            This site has everything you’ll need for the weekend—schedule, dress code,
+            where to stay, and how to RSVP. Use the Gallery page for more photos.
+          </p>
+          <p style="margin-top:0.9rem;">
+            <a class="registry-link" href="gallery.html">View Gallery</a>
+          </p>
+        </div>
+        <div class="frame">
+          <img src="images/car-1.jpg" alt="Hector and Bianca in their convertible" />
+        </div>
+      </div>
+    </section>
+
+    <!-- SCHEDULE -->
+    <section id="schedule">
+      <div class="section-heading">
+        <div class="section-eyebrow">Schedule</div>
+        <h2 class="section-title">Wedding Weekend</h2>
+      </div>
+
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-label">Friday</div>
+          <div class="card-title">Welcome</div>
+          <p>
+            Optional welcome drinks for anyone in town early. Details to come as we get
+            closer—check back here for time and place.
+          </p>
+        </div>
+        <div class="card">
+          <div class="card-label">Saturday</div>
+          <div class="card-title">Ceremony &amp; Reception</div>
+          <p>
+            Ceremony at Bally Keal Estate in the late afternoon with cocktail hour,
+            dinner, and dancing to follow. Exact times will be updated here.
+          </p>
+        </div>
+        <div class="card">
+          <div class="card-label">Sunday</div>
+          <div class="card-title">Farewell</div>
+          <p>
+            If you’re still in Napa, we’d love to say goodbye over brunch or coffee.
+            More details to come.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- DRESS CODE -->
+    <section id="dress-code">
+      <div class="section-heading">
+        <div class="section-eyebrow">Dress Code</div>
+        <h2 class="section-title">What to Wear</h2>
+      </div>
+
+      <div class="card">
+        <div class="card-label">Evening Attire</div>
+        <div class="card-title">Formal / Black-Tie Optional</div>
+        <p>
+          Think elevated and chic: suits or tuxes, long dresses or dressy cocktail looks.
+          The celebration is outdoors on estate grounds, so consider block heels or
+          shoes that are grass-friendly.
+        </p>
+        <p style="margin-top:0.7rem;">
+          When in doubt, dress up—we’d love for the photos to feel as timeless as the
+          night will.
+        </p>
+      </div>
+    </section>
+
+    <!-- TRAVEL & ACCOMMODATIONS -->
+    <section id="travel">
+      <div class="section-heading">
+        <div class="section-eyebrow">Travel</div>
+        <h2 class="section-title">Getting to Napa &amp; Where to Stay</h2>
+      </div>
+
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-label">Airports</div>
+          <div class="card-title">Closest Options</div>
+          <p>
+            Napa is accessible from Sacramento (SMF), San Francisco (SFO), and Oakland (OAK).
+            SMF and OAK are often the most convenient.
+          </p>
+        </div>
+        <div class="card">
+          <div class="card-label">Staying Nearby</div>
+          <div class="card-title">Hotels &amp; Rentals</div>
+          <p>
+            We’ll be sharing our recommended hotels and any room blocks here soon.
+            Downtown Napa, Yountville, and American Canyon are all great options.
+          </p>
+        </div>
+        <div class="card">
+          <div class="card-label">Getting Around</div>
+          <div class="card-title">Transportation</div>
+          <p>
+            Rideshare and car rentals are both easy from the airports. We’ll update this
+            section with any shuttle or group transportation details.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- REGISTRY & RSVP -->
+    <section id="registry">
+      <div class="section-heading">
+        <div class="section-eyebrow">Registry</div>
+        <h2 class="section-title">Gifts &amp; Honeymoon</h2>
+      </div>
+
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-label">Registry</div>
+          <div class="card-title">Your Presence Is Enough</div>
+          <p>
+            Truly, having you celebrate with us is the gift. For those who have asked,
+            we’ll be registered at The Knot / Zola.
+          </p>
+          <a href="https://www.theknot.com/us/hector-portela-and-bianca-zavalza-oct-2026"
+             target="_blank" rel="noopener" class="registry-link">
+            View Registry
+          </a>
+        </div>
+
+        <div class="card" id="rsvp">
+          <div class="card-label">RSVP</div>
+          <div class="card-title">Let Us Know You’re Coming</div>
+          <p>
+            Please RSVP by <strong>August 15, 2026</strong> so we can plan all the
+            details. Use the online RSVP link below.
+          </p>
+          <a href="https://www.theknot.com/us/hector-portela-and-bianca-zavalza-oct-2026/rsvp"
+             target="_blank" rel="noopener" class="registry-link">
+            RSVP Online
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQs -->
+    <section id="faqs">
+      <div class="section-heading">
+        <div class="section-eyebrow">FAQs</div>
+        <h2 class="section-title">Good to Know</h2>
+      </div>
+
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-label">Question</div>
+          <div class="card-title">Can I bring a guest?</div>
+          <p>
+            If your invitation includes “and guest,” then yes! Otherwise, we’re keeping
+            the celebration intimate and are only able to accommodate those listed on
+            the invitation.
+          </p>
+        </div>
+        <div class="card">
+          <div class="card-label">Question</div>
+          <div class="card-title">Are kids invited?</div>
+          <p>
+            We love your little ones, but this will be an adults-only evening unless
+            otherwise noted on your invitation.
+          </p>
+        </div>
+        <div class="card">
+          <div class="card-label">Question</div>
+          <div class="card-title">More Questions?</div>
+          <p>
+            Reach out to us directly—we’re happy to help with travel, outfits, or any
+            other details.
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div>With love, <span>Hector &amp; Bianca</span></div>
+    <div>October 3, 2026 • Napa, California</div>
+  </footer>
+
+  <!-- HERO SLIDESHOW SCRIPT -->
+  <script>
+    // Use landscape hero images for the cleanest fit (your 1024x683 set)
+    const heroImages = [
+      "images/car-4.jpg",
+      "images/car-13.jpg",
+      "images/car-8.jpg",
+      "images/car-12.jpg",
+      "images/car-6.jpg"
+    ];
+
+    const layerA = document.querySelector(".hero-bg-a");
+    const layerB = document.querySelector(".hero-bg-b");
+
+    if (layerA && layerB && heroImages.length > 0) {
+      let currentIndex = 0;
+      let showingA = true;
+
+      // Initialize both layers so the first fade is seamless
+      layerA.style.backgroundImage = `url('${heroImages[0]}')`;
+      layerB.style.backgroundImage = `url('${heroImages[0]}')`;
+
+      setInterval(() => {
+        currentIndex = (currentIndex + 1) % heroImages.length;
+        const nextUrl = `url('${heroImages[currentIndex]}')`;
+
+        if (showingA) {
+          layerB.style.backgroundImage = nextUrl;
+          layerB.style.opacity = "1";
+          layerA.style.opacity = "0";
+        } else {
+          layerA.style.backgroundImage = nextUrl;
+          layerA.style.opacity = "1";
+          layerB.style.opacity = "0";
+        }
+
+        showingA = !showingA;
+      }, 6000); // faster than 8s but still elegant
+    }
+  </script>
+</body>
+</html>
