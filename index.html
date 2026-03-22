@@ -20,7 +20,6 @@
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -93,9 +92,6 @@
     /* HERO */
     .hero {
       min-height: 72vh;
-      display: flex;
-      align-items: stretch;
-      justify-content: center;
       position: relative;
       overflow: hidden;
       background: #000;
@@ -105,8 +101,7 @@
       position: absolute;
       inset: 0;
       opacity: 0;
-      transition: opacity 1.25s ease-in-out;
-      filter: brightness(0.95);
+      transition: opacity 1.5s ease-in-out;
       will-change: opacity;
     }
 
@@ -118,7 +113,7 @@
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      filter: blur(22px) brightness(0.62);
+      filter: blur(22px) brightness(0.58);
       transform: scale(1.12);
     }
 
@@ -140,48 +135,38 @@
       inset: 0;
       pointer-events: none;
       background:
-        radial-gradient(120% 90% at 50% 40%,
-          rgba(0,0,0,0.10) 0%,
-          rgba(0,0,0,0.32) 65%,
+        radial-gradient(120% 92% at 50% 38%,
+          rgba(0,0,0,0.06) 0%,
+          rgba(0,0,0,0.24) 52%,
           rgba(0,0,0,0.48) 100%);
     }
 
     .hero-overlay {
-      position: relative;
-      max-width: 1120px;
-      width: 100%;
-      margin: 0 auto;
-      padding: 1rem 1.1rem 4.5rem;
-      display: flex;
-      align-items: flex-start;
-      justify-content: flex-start;
-    }
-
-    .hero-brand {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 0.25rem;
+      position: absolute;
+      top: 16px;
+      left: 18px;
+      z-index: 3;
+      pointer-events: none;
     }
 
     .hero-monogram {
       font-family: "Playfair Display", serif;
-      font-size: clamp(1.4rem, 2.4vw, 1.95rem);
-      letter-spacing: 0.16em;
+      font-size: 1.35rem;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.96);
-      text-shadow: 0 8px 18px rgba(0,0,0,0.22);
-      line-height: 1;
+      color: rgba(255,255,255,0.82);
+      text-shadow: 0 8px 18px rgba(0,0,0,0.24);
+      animation: hbFloat 6s ease-in-out infinite, hbFade 7s ease-in-out infinite;
     }
 
-    .hero-sub {
-      font-size: 0.56rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.84);
-      text-shadow: 0 8px 18px rgba(0,0,0,0.22);
-      line-height: 1.45;
-      max-width: 240px;
+    @keyframes hbFloat {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-2px); }
+    }
+
+    @keyframes hbFade {
+      0%, 100% { opacity: 0.72; }
+      50% { opacity: 0.92; }
     }
 
     /* MAIN */
@@ -219,7 +204,10 @@
       align-items: center;
     }
 
-    .two-col p { font-size: 0.95rem; margin-bottom: 0.9rem; }
+    .two-col p {
+      font-size: 0.95rem;
+      margin-bottom: 0.9rem;
+    }
 
     .frame {
       border-radius: 18px;
@@ -286,27 +274,27 @@
     }
 
     @media (max-width: 800px) {
+      .hero {
+        min-height: 68vh;
+      }
+
       .hero-overlay {
-        justify-content: flex-start;
-        text-align: left;
-        padding: 0.9rem 0.9rem 3rem;
+        top: 12px;
+        left: 14px;
       }
 
       .hero-monogram {
-        font-size: 1.25rem;
-      }
-
-      .hero-sub {
-        font-size: 0.5rem;
-        max-width: 200px;
+        font-size: 1.15rem;
+        letter-spacing: 0.15em;
       }
 
       .two-col {
         grid-template-columns: minmax(0, 1fr);
       }
 
-      main { margin-top: 2.3rem; }
-      .hero { min-height: 68vh; }
+      main {
+        margin-top: 2.3rem;
+      }
     }
   </style>
 </head>
@@ -342,12 +330,7 @@
     <div class="hero-vignette"></div>
 
     <div class="hero-overlay">
-      <div class="hero-brand">
-        <div class="hero-monogram">H&amp;B</div>
-        <div class="hero-sub">
-          October 3, 2026 • Bally Keal Estate • Napa, California
-        </div>
-      </div>
+      <div class="hero-monogram">H&amp;B</div>
     </div>
   </section>
 
@@ -602,7 +585,7 @@
         showingA = !showingA;
       };
 
-      setInterval(rotate, 5200);
+      setInterval(rotate, 5600);
     }
   </script>
 </body>
