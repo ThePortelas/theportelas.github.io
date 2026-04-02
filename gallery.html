@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Hector & Bianca • Wedding</title>
+  <title>Hector & Bianca • Gallery</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Google Fonts -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
@@ -13,30 +13,30 @@
   <style>
     :root {
       --bg: #f7f4ef;
-      --text: #222222;
+      --text: #222;
       --accent: #b88a4a;
-      --accent-soft: #e9dcc6;
-      --white: #ffffff;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
+    html { scroll-behavior: smooth; }
+
     body {
       font-family: "Montserrat", system-ui, -apple-system, sans-serif;
-      background-color: var(--bg);
+      background: var(--bg);
       color: var(--text);
       line-height: 1.6;
     }
 
-    a { color: inherit; text-decoration: none; }
+    a { text-decoration: none; color: inherit; }
     img { display: block; max-width: 100%; }
 
-    /* HEADER – names + nav */
+    /* HEADER */
     header {
       position: sticky;
       top: 0;
       z-index: 50;
-      background: rgba(247, 244, 239, 0.96);
+      background: rgba(247,244,239,0.96);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid rgba(0,0,0,0.06);
     }
@@ -44,13 +44,13 @@
     .header-inner {
       max-width: 1120px;
       margin: 0 auto;
-      padding: 0.75rem 1.25rem 0.9rem;
+      padding: 0.8rem 1.2rem;
       text-align: center;
     }
 
     .site-title {
       font-family: "Playfair Display", serif;
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       letter-spacing: 0.22em;
       text-transform: uppercase;
       margin-bottom: 0.4rem;
@@ -59,8 +59,8 @@
     nav ul {
       list-style: none;
       display: inline-flex;
-      gap: 1.6rem;
-      font-size: 0.8rem;
+      gap: 1.4rem;
+      font-size: 0.75rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
       flex-wrap: wrap;
@@ -88,153 +88,173 @@
       width: 100%;
     }
 
-    /* HERO – slideshow background */
-    .hero {
-      min-height: 68vh;
-      display: flex;
-      align-items: stretch;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      background-size: cover;
-      background-position: 50% 50%;
-      background-repeat: no-repeat;
-      filter: brightness(0.7);
-      transform: scale(1.02);
-      opacity: 0;
-      transition: opacity 1s ease-in-out;
-    }
-
-    .hero-bg-a { opacity: 1; }
-
-    .hero-overlay {
-      position: relative;
-      max-width: 1120px;
-      width: 100%;
-      margin: 0 auto;
-      padding: 4rem 1.25rem 4.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-    }
-
-    .hero-monogram {
-      font-family: "Playfair Display", serif;
-      font-size: clamp(3rem, 6vw, 4.5rem);
-      letter-spacing: 0.24em;
-      text-transform: uppercase;
-      color: var(--white);
-    }
-
-    .hero-sub {
-      margin-top: 0.8rem;
-      font-size: 0.9rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.9);
-    }
-
-    /* MAIN LAYOUT */
-    main {
-      max-width: 1120px;
-      margin: 3rem auto 4rem;
-      padding: 0 1.25rem;
-    }
-
-    section { margin-bottom: 3.5rem; }
-
-    .section-heading {
+    /* PAGE HEADER */
+    .gallery-header {
       text-align: center;
-      margin-bottom: 1.75rem;
+      margin: 2.6rem 0 2.1rem;
+      padding: 0 1rem;
     }
 
-    .section-eyebrow {
+    .gallery-eyebrow {
       font-size: 0.75rem;
       text-transform: uppercase;
       letter-spacing: 0.22em;
-      color: #777;
-      margin-bottom: 0.25rem;
-    }
-
-    .section-title {
-      font-family: "Playfair Display", serif;
-      font-size: 1.7rem;
-      letter-spacing: 0.04em;
-    }
-
-    /* TWO-COLUMN */
-    .two-col {
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-      gap: 2.3rem;
-      align-items: center;
-    }
-
-    .two-col p { font-size: 0.95rem; margin-bottom: 0.9rem; }
-
-    .frame {
-      border-radius: 18px;
-      padding: 0.6rem;
-      background: linear-gradient(135deg, var(--accent-soft), #f1e3cd);
-      box-shadow: 0 10px 28px rgba(0,0,0,0.14);
-    }
-
-    .frame img {
-      border-radius: 14px;
-      object-fit: cover;
-    }
-
-    /* CARDS */
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 1.3rem;
-    }
-
-    .card {
-      background: #fdfaf5;
-      border-radius: 16px;
-      padding: 1.35rem 1.2rem;
-      box-shadow: 0 8px 22px rgba(0,0,0,0.06);
-      border: 1px solid rgba(0,0,0,0.04);
-      font-size: 0.92rem;
-    }
-
-    .card-label {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
       color: #777;
       margin-bottom: 0.35rem;
     }
 
-    .card-title {
+    .gallery-title {
       font-family: "Playfair Display", serif;
-      font-size: 1.1rem;
-      margin-bottom: 0.3rem;
+      font-size: 2rem;
+      margin-bottom: 0.55rem;
+      letter-spacing: 0.03em;
     }
 
-    /* Registry / RSVP link style */
-    .registry-link {
-      font-size: 0.8rem;
-      letter-spacing: 0.2em;
+    .gallery-sub {
+      max-width: 640px;
+      margin: 0 auto;
+      font-size: 0.92rem;
+      color: #666;
+    }
+
+    /* STACKED IMAGES */
+    .gallery {
+      max-width: 900px;
+      margin: 0 auto 3rem;
+      padding: 0 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .gallery figure {
+      margin: 0;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 18px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+      cursor: pointer;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.01);
+      box-shadow: 0 16px 34px rgba(0,0,0,0.14);
+    }
+
+    /* LIGHTBOX */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.94);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+      padding: 2rem;
+    }
+
+    .lightbox.show {
+      display: flex;
+    }
+
+    .lightbox-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox-image-wrap {
+      position: relative;
+      max-width: 92vw;
+      max-height: 86vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox-image-wrap img {
+      max-width: 92vw;
+      max-height: 86vh;
+      border-radius: 12px;
+      box-shadow: 0 18px 44px rgba(0,0,0,0.28);
+      opacity: 1;
+      transition: opacity 0.35s ease;
+    }
+
+    .lightbox-image-wrap img.is-fading {
+      opacity: 0.18;
+    }
+
+    .lightbox-btn {
+      position: absolute;
+      color: rgba(255,255,255,0.92);
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      width: 46px;
+      height: 46px;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      user-select: none;
+      backdrop-filter: blur(6px);
+      transition: background 0.25s ease, transform 0.25s ease;
+      font-size: 1.4rem;
+      line-height: 1;
+    }
+
+    .lightbox-btn:hover {
+      background: rgba(255,255,255,0.14);
+      transform: scale(1.04);
+    }
+
+    .lightbox-close {
+      top: 18px;
+      right: 18px;
+    }
+
+    .lightbox-prev {
+      left: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .lightbox-prev:hover {
+      transform: translateY(-50%) scale(1.04);
+    }
+
+    .lightbox-next {
+      right: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .lightbox-next:hover {
+      transform: translateY(-50%) scale(1.04);
+    }
+
+    .lightbox-count {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255,255,255,0.82);
+      font-size: 0.82rem;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      border-bottom: 1px solid var(--accent);
-      display: inline-block;
-      padding-bottom: 0.15rem;
-      margin-top: 0.7rem;
     }
 
     /* FOOTER */
     footer {
-      border-top: 1px solid rgba(0,0,0,0.06);
-      padding: 1.6rem 1.25rem 2rem;
       text-align: center;
+      padding: 2rem;
       font-size: 0.8rem;
       color: #777;
     }
@@ -244,302 +264,237 @@
       color: var(--accent);
     }
 
-    /* RESPONSIVE */
-    @media (max-width: 800px) {
-      .hero-overlay {
-        justify-content: center;
-        text-align: center;
+    @media (max-width: 700px) {
+      .gallery {
+        gap: 1.35rem;
       }
-      .two-col {
-        grid-template-columns: minmax(0, 1fr);
+
+      .gallery-title {
+        font-size: 1.7rem;
       }
-      main { margin-top: 2.3rem; }
-      .hero-bg { background-position: 50% 36%; }
+
+      .lightbox {
+        padding: 1rem;
+      }
+
+      .lightbox-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.15rem;
+      }
+
+      .lightbox-prev {
+        left: 10px;
+      }
+
+      .lightbox-next {
+        right: 10px;
+      }
+
+      .lightbox-close {
+        top: 10px;
+        right: 10px;
+      }
+
+      .lightbox-count {
+        bottom: 12px;
+        font-size: 0.72rem;
+      }
     }
   </style>
 </head>
+
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <div class="header-inner">
-      <div class="site-title">HECTOR &amp; BIANCA</div>
-      <nav>
-        <ul>
-          <li><a href="#home" class="active">Home</a></li>
-          <li><a href="gallery.html">Gallery</a></li>
-          <li><a href="#schedule">Schedule</a></li>
-          <li><a href="#dress-code">Dress Code</a></li>
-          <li><a href="wedding-party.html">Wedding Party</a></li>
-          <li><a href="#travel">Travel</a></li>
-          <li><a href="#registry">Registry</a></li>
-          <li><a href="#faqs">FAQs</a></li>
-          <li>
-            <a href="https://www.theknot.com/us/hector-portela-and-bianca-zavalza-oct-2026/rsvp"
-               target="_blank" rel="noopener">
-              RSVP
-            </a>
-          </li>
-        </ul>
-      </nav>
+<header>
+  <div class="header-inner">
+    <div class="site-title">HECTOR &amp; BIANCA</div>
+    <nav>
+      <ul>
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="gallery.html" class="active">Gallery</a></li>
+        <li><a href="index.html#schedule">Schedule</a></li>
+        <li><a href="wedding-party.html">Wedding Party</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="gallery-header">
+  <div class="gallery-eyebrow">Gallery</div>
+  <h1 class="gallery-title">A Little Drive With Us</h1>
+  <p class="gallery-sub">
+    A few of our favorite moments so far — Napa light, long drives, and everything in between.
+  </p>
+</div>
+
+<section class="gallery" id="gallery">
+  <figure><img src="images/napa-1.jpg" alt="Hector and Bianca in Napa" /></figure>
+  <figure><img src="images/napa-2.jpg" alt="Couple portrait in Napa" /></figure>
+  <figure><img src="images/napa-3.jpg" alt="Romantic Napa photo" /></figure>
+  <figure><img src="images/napa-4.jpg" alt="Engagement moment outdoors" /></figure>
+  <figure><img src="images/napa-5.jpg" alt="Hector and Bianca smiling together" /></figure>
+  <figure><img src="images/napa-7.jpg" alt="Scenic engagement portrait" /></figure>
+  <figure><img src="images/napa-8.jpg" alt="Outdoor couple portrait" /></figure>
+  <figure><img src="images/napa-9.jpg" alt="Couple photo in Napa light" /></figure>
+  <figure><img src="images/napa-12.jpg" alt="Elegant engagement session portrait" /></figure>
+  <figure><img src="images/napa-13.jpg" alt="Romantic Napa couple portrait" /></figure>
+  <figure><img src="images/napa-15.jpg" alt="Editorial outdoor engagement photo" /></figure>
+  <figure><img src="images/napa-18.jpg" alt="Quiet moment together in Napa" /></figure>
+  <figure><img src="images/napa-19.jpg" alt="Couple enjoying Napa together" /></figure>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <div class="lightbox-inner">
+    <button class="lightbox-btn lightbox-close" id="lightboxClose" aria-label="Close gallery">&times;</button>
+    <button class="lightbox-btn lightbox-prev" id="lightboxPrev" aria-label="Previous image">&#10094;</button>
+
+    <div class="lightbox-image-wrap">
+      <img id="lightboxImg" src="" alt="" />
     </div>
-  </header>
 
-  <!-- HERO with slideshow background -->
-  <section class="hero" id="home">
-    <div class="hero-bg hero-bg-a"></div>
-    <div class="hero-bg hero-bg-b"></div>
+    <button class="lightbox-btn lightbox-next" id="lightboxNext" aria-label="Next image">&#10095;</button>
+    <div class="lightbox-count" id="lightboxCount">1 / 1</div>
+  </div>
+</div>
 
-    <div class="hero-overlay">
-      <div>
-        <div class="hero-monogram">H &amp; B</div>
-        <div class="hero-sub">
-          October 3, 2026 • Bally Keal Estate • Napa, California
-        </div>
-      </div>
-    </div>
-  </section>
+<footer>
+  <div>With love, <span>Hector &amp; Bianca</span></div>
+  <div>October 3, 2026 • Napa, California</div>
+</footer>
 
-  <main>
+<script>
+  const galleryImages = Array.from(document.querySelectorAll(".gallery img"));
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightboxImg");
+  const lightboxClose = document.getElementById("lightboxClose");
+  const lightboxPrev = document.getElementById("lightboxPrev");
+  const lightboxNext = document.getElementById("lightboxNext");
+  const lightboxCount = document.getElementById("lightboxCount");
 
-    <!-- WELCOME / ABOUT -->
-    <section>
-      <div class="section-heading">
-        <div class="section-eyebrow">Welcome</div>
-        <h2 class="section-title">We’re So Glad You’re Here</h2>
-      </div>
+  let currentIndex = 0;
+  let autoPlayTimer = null;
+  let touchStartX = 0;
+  let touchEndX = 0;
 
-      <div class="two-col">
-        <div>
-          <p>
-            Somewhere between long drives, inside jokes, and dreaming about the future,
-            we realized we didn’t want to do life without each other. Now we’re counting
-            down to celebrating with all of you in Napa.
-          </p>
-          <p>
-            This site has everything you’ll need for the weekend—schedule, dress code,
-            where to stay, and how to RSVP. Use the Gallery page for more photos.
-          </p>
-          <p style="margin-top:0.9rem;">
-            <a class="registry-link" href="gallery.html">View Gallery</a>
-          </p>
-        </div>
-        <div class="frame">
-          <img src="images/car-1.jpg" alt="Hector and Bianca in their convertible" />
-        </div>
-      </div>
-    </section>
+  function updateCounter() {
+    lightboxCount.textContent = `${currentIndex + 1} / ${galleryImages.length}`;
+  }
 
-    <!-- SCHEDULE -->
-    <section id="schedule">
-      <div class="section-heading">
-        <div class="section-eyebrow">Schedule</div>
-        <h2 class="section-title">Wedding Weekend</h2>
-      </div>
+  function swapImage(newIndex) {
+    currentIndex = (newIndex + galleryImages.length) % galleryImages.length;
+    const newSrc = galleryImages[currentIndex].src;
+    const newAlt = galleryImages[currentIndex].alt || "";
 
-      <div class="card-grid">
-        <div class="card">
-          <div class="card-label">Friday</div>
-          <div class="card-title">Welcome</div>
-          <p>
-            Optional welcome drinks for anyone in town early. Details to come as we get
-            closer—check back here for time and place.
-          </p>
-        </div>
-        <div class="card">
-          <div class="card-label">Saturday</div>
-          <div class="card-title">Ceremony &amp; Reception</div>
-          <p>
-            Ceremony at Bally Keal Estate in the late afternoon with cocktail hour,
-            dinner, and dancing to follow. Exact times will be updated here.
-          </p>
-        </div>
-        <div class="card">
-          <div class="card-label">Sunday</div>
-          <div class="card-title">Farewell</div>
-          <p>
-            If you’re still in Napa, we’d love to say goodbye over brunch or coffee.
-            More details to come.
-          </p>
-        </div>
-      </div>
-    </section>
+    lightboxImg.classList.add("is-fading");
 
-    <!-- DRESS CODE -->
-    <section id="dress-code">
-      <div class="section-heading">
-        <div class="section-eyebrow">Dress Code</div>
-        <h2 class="section-title">What to Wear</h2>
-      </div>
+    setTimeout(() => {
+      lightboxImg.src = newSrc;
+      lightboxImg.alt = newAlt;
+      updateCounter();
+      requestAnimationFrame(() => {
+        lightboxImg.classList.remove("is-fading");
+      });
+    }, 160);
+  }
 
-      <div class="card">
-        <div class="card-label">Evening Attire</div>
-        <div class="card-title">Formal / Black-Tie Optional</div>
-        <p>
-          Think elevated and chic: suits or tuxes, long dresses or dressy cocktail looks.
-          The celebration is outdoors on estate grounds, so consider block heels or
-          shoes that are grass-friendly.
-        </p>
-        <p style="margin-top:0.7rem;">
-          When in doubt, dress up—we’d love for the photos to feel as timeless as the
-          night will.
-        </p>
-      </div>
-    </section>
+  function openLightbox(index) {
+    lightbox.classList.add("show");
+    lightbox.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+    swapImage(index);
+    startAutoPlay();
+  }
 
-    <!-- TRAVEL & ACCOMMODATIONS -->
-    <section id="travel">
-      <div class="section-heading">
-        <div class="section-eyebrow">Travel</div>
-        <h2 class="section-title">Getting to Napa &amp; Where to Stay</h2>
-      </div>
+  function closeLightbox() {
+    lightbox.classList.remove("show");
+    lightbox.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+    stopAutoPlay();
+  }
 
-      <div class="card-grid">
-        <div class="card">
-          <div class="card-label">Airports</div>
-          <div class="card-title">Closest Options</div>
-          <p>
-            Napa is accessible from Sacramento (SMF), San Francisco (SFO), and Oakland (OAK).
-            SMF and OAK are often the most convenient.
-          </p>
-        </div>
-        <div class="card">
-          <div class="card-label">Staying Nearby</div>
-          <div class="card-title">Hotels &amp; Rentals</div>
-          <p>
-            We’ll be sharing our recommended hotels and any room blocks here soon.
-            Downtown Napa, Yountville, and American Canyon are all great options.
-          </p>
-        </div>
-        <div class="card">
-          <div class="card-label">Getting Around</div>
-          <div class="card-title">Transportation</div>
-          <p>
-            Rideshare and car rentals are both easy from the airports. We’ll update this
-            section with any shuttle or group transportation details.
-          </p>
-        </div>
-      </div>
-    </section>
+  function nextImage() {
+    swapImage(currentIndex + 1);
+  }
 
-    <!-- REGISTRY & RSVP -->
-    <section id="registry">
-      <div class="section-heading">
-        <div class="section-eyebrow">Registry</div>
-        <h2 class="section-title">Gifts &amp; Honeymoon</h2>
-      </div>
+  function prevImage() {
+    swapImage(currentIndex - 1);
+  }
 
-      <div class="card-grid">
-        <div class="card">
-          <div class="card-label">Registry</div>
-          <div class="card-title">Your Presence Is Enough</div>
-          <p>
-            Truly, having you celebrate with us is the gift. For those who have asked,
-            we’ll be registered at The Knot / Zola.
-          </p>
-          <a href="https://www.theknot.com/us/hector-portela-and-bianca-zavalza-oct-2026"
-             target="_blank" rel="noopener" class="registry-link">
-            View Registry
-          </a>
-        </div>
+  function startAutoPlay() {
+    stopAutoPlay();
+    autoPlayTimer = setInterval(() => {
+      nextImage();
+    }, 6500);
+  }
 
-        <div class="card" id="rsvp">
-          <div class="card-label">RSVP</div>
-          <div class="card-title">Let Us Know You’re Coming</div>
-          <p>
-            Please RSVP by <strong>August 15, 2026</strong> so we can plan all the
-            details. Use the online RSVP link below.
-          </p>
-          <a href="https://www.theknot.com/us/hector-portela-and-bianca-zavalza-oct-2026/rsvp"
-             target="_blank" rel="noopener" class="registry-link">
-            RSVP Online
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQs -->
-    <section id="faqs">
-      <div class="section-heading">
-        <div class="section-eyebrow">FAQs</div>
-        <h2 class="section-title">Good to Know</h2>
-      </div>
-
-      <div class="card-grid">
-        <div class="card">
-          <div class="card-label">Question</div>
-          <div class="card-title">Can I bring a guest?</div>
-          <p>
-            If your invitation includes “and guest,” then yes! Otherwise, we’re keeping
-            the celebration intimate and are only able to accommodate those listed on
-            the invitation.
-          </p>
-        </div>
-        <div class="card">
-          <div class="card-label">Question</div>
-          <div class="card-title">Are kids invited?</div>
-          <p>
-            We love your little ones, but this will be an adults-only evening unless
-            otherwise noted on your invitation.
-          </p>
-        </div>
-        <div class="card">
-          <div class="card-label">Question</div>
-          <div class="card-title">More Questions?</div>
-          <p>
-            Reach out to us directly—we’re happy to help with travel, outfits, or any
-            other details.
-          </p>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer>
-    <div>With love, <span>Hector &amp; Bianca</span></div>
-    <div>October 3, 2026 • Napa, California</div>
-  </footer>
-
-  <!-- HERO SLIDESHOW SCRIPT -->
-  <script>
-    // Use landscape hero images for the cleanest fit (your 1024x683 set)
-    const heroImages = [
-      "images/car-4.jpg",
-      "images/car-13.jpg",
-      "images/car-8.jpg",
-      "images/car-12.jpg",
-      "images/car-6.jpg"
-    ];
-
-    const layerA = document.querySelector(".hero-bg-a");
-    const layerB = document.querySelector(".hero-bg-b");
-
-    if (layerA && layerB && heroImages.length > 0) {
-      let currentIndex = 0;
-      let showingA = true;
-
-      // Initialize both layers so the first fade is seamless
-      layerA.style.backgroundImage = `url('${heroImages[0]}')`;
-      layerB.style.backgroundImage = `url('${heroImages[0]}')`;
-
-      setInterval(() => {
-        currentIndex = (currentIndex + 1) % heroImages.length;
-        const nextUrl = `url('${heroImages[currentIndex]}')`;
-
-        if (showingA) {
-          layerB.style.backgroundImage = nextUrl;
-          layerB.style.opacity = "1";
-          layerA.style.opacity = "0";
-        } else {
-          layerA.style.backgroundImage = nextUrl;
-          layerA.style.opacity = "1";
-          layerB.style.opacity = "0";
-        }
-
-        showingA = !showingA;
-      }, 6000); // faster than 8s but still elegant
+  function stopAutoPlay() {
+    if (autoPlayTimer) {
+      clearInterval(autoPlayTimer);
+      autoPlayTimer = null;
     }
-  </script>
+  }
+
+  galleryImages.forEach((img, index) => {
+    img.addEventListener("click", () => openLightbox(index));
+  });
+
+  lightboxClose.addEventListener("click", closeLightbox);
+  lightboxNext.addEventListener("click", () => {
+    nextImage();
+    startAutoPlay();
+  });
+  lightboxPrev.addEventListener("click", () => {
+    prevImage();
+    startAutoPlay();
+  });
+
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (!lightbox.classList.contains("show")) return;
+
+    if (e.key === "Escape") closeLightbox();
+    if (e.key === "ArrowRight") {
+      nextImage();
+      startAutoPlay();
+    }
+    if (e.key === "ArrowLeft") {
+      prevImage();
+      startAutoPlay();
+    }
+  });
+
+  /* mobile swipe */
+  lightbox.addEventListener("touchstart", (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+
+  lightbox.addEventListener("touchend", (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    const delta = touchEndX - touchStartX;
+
+    if (Math.abs(delta) > 50) {
+      if (delta < 0) {
+        nextImage();
+      } else {
+        prevImage();
+      }
+      startAutoPlay();
+    }
+  }, { passive: true });
+
+  /* pause autoplay if user hovers desktop buttons/image */
+  [lightboxImg, lightboxPrev, lightboxNext].forEach(el => {
+    el.addEventListener("mouseenter", stopAutoPlay);
+    el.addEventListener("mouseleave", () => {
+      if (lightbox.classList.contains("show")) startAutoPlay();
+    });
+  });
+</script>
+
 </body>
 </html>

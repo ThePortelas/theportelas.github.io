@@ -5,7 +5,7 @@
   <title>Hector & Bianca • Wedding Party</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Google Fonts -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
@@ -13,29 +13,26 @@
   <style>
     :root {
       --bg: #f7f4ef;
-      --text: #222222;
+      --text: #222;
       --accent: #b88a4a;
-      --accent-soft: #e9dcc6;
-      --white: #ffffff;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      font-family: "Montserrat", system-ui, -apple-system, sans-serif;
-      background-color: var(--bg);
+      font-family: "Montserrat", sans-serif;
+      background: var(--bg);
       color: var(--text);
-      line-height: 1.6;
     }
 
-    a { color: inherit; text-decoration: none; }
-    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
 
+    /* HEADER */
     header {
       position: sticky;
       top: 0;
       z-index: 50;
-      background: rgba(247, 244, 239, 0.96);
+      background: rgba(247,244,239,0.96);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid rgba(0,0,0,0.06);
     }
@@ -43,13 +40,13 @@
     .header-inner {
       max-width: 1120px;
       margin: 0 auto;
-      padding: 0.75rem 1.25rem 0.9rem;
+      padding: 0.8rem 1.2rem;
       text-align: center;
     }
 
     .site-title {
       font-family: "Playfair Display", serif;
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       letter-spacing: 0.22em;
       text-transform: uppercase;
       margin-bottom: 0.4rem;
@@ -58,144 +55,195 @@
     nav ul {
       list-style: none;
       display: inline-flex;
-      gap: 1.6rem;
-      font-size: 0.8rem;
+      gap: 1.4rem;
+      font-size: 0.75rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
-    nav a {
-      position: relative;
-      padding-bottom: 0.2rem;
+    nav a.active {
+      border-bottom: 1px solid var(--accent);
     }
 
-    nav a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 0;
-      height: 1px;
-      background: var(--accent);
-      transition: width 0.25s ease;
-    }
-
-    nav a.active::after,
-    nav a:hover::after {
-      width: 100%;
-    }
-
-    main {
-      max-width: 1120px;
-      margin: 3rem auto 4rem;
-      padding: 0 1.25rem;
-    }
-
-    .section-heading {
+    /* HEADER TEXT */
+    .page-header {
       text-align: center;
-      margin-bottom: 1.75rem;
+      margin: 3rem 0 2.5rem;
+      padding: 0 1rem;
     }
 
-    .section-eyebrow {
+    .eyebrow {
       font-size: 0.75rem;
-      text-transform: uppercase;
       letter-spacing: 0.22em;
+      text-transform: uppercase;
       color: #777;
-      margin-bottom: 0.25rem;
+      margin-bottom: 0.4rem;
     }
 
-    .section-title {
+    .title {
       font-family: "Playfair Display", serif;
-      font-size: 1.7rem;
-      letter-spacing: 0.04em;
+      font-size: 2rem;
+      margin-bottom: 0.6rem;
     }
 
-    .card {
-      background: #fdfaf5;
-      border-radius: 16px;
-      padding: 1.5rem 1.25rem;
-      box-shadow: 0 8px 22px rgba(0,0,0,0.06);
-      border: 1px solid rgba(0,0,0,0.04);
-      max-width: 780px;
-      margin: 0 auto;
+    .subtitle {
       font-size: 0.95rem;
-      color: #444;
-    }
-
-    .hint {
-      margin-top: 1rem;
-      font-size: 0.9rem;
       color: #666;
+      max-width: 600px;
+      margin: 0 auto;
     }
 
-    footer {
-      border-top: 1px solid rgba(0,0,0,0.06);
-      padding: 1.6rem 1.25rem 2rem;
+    /* PARTY */
+    .party-section {
+      max-width: 600px;
+      margin: 2.5rem auto;
       text-align: center;
+    }
+
+    .party-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #777;
+      margin-bottom: 0.3rem;
+    }
+
+    .party-title {
+      font-family: "Playfair Display", serif;
+      font-size: 1.5rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .names {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      font-size: 0.95rem;
+    }
+
+    .role {
+      color: var(--accent);
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 2rem;
       font-size: 0.8rem;
       color: #777;
+      border-top: 1px solid rgba(0,0,0,0.06);
+      margin-top: 3rem;
     }
 
     footer span {
       font-family: "Playfair Display", serif;
       color: var(--accent);
     }
-
-    @media (max-width: 800px) {
-      nav ul {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.9rem;
-        justify-content: center;
-      }
-      main { margin-top: 2.3rem; }
-    }
   </style>
 </head>
+
 <body>
 
-  <header>
-    <div class="header-inner">
-      <div class="site-title">HECTOR &amp; BIANCA</div>
-      <nav>
-        <ul>
-          <li><a href="index.html#home">Home</a></li>
-          <li><a href="gallery.html">Gallery</a></li>
-          <li><a href="index.html#schedule">Schedule</a></li>
-          <li><a href="index.html#dress-code">Dress Code</a></li>
-          <li><a href="wedding-party.html" class="active">Wedding Party</a></li>
-          <li><a href="index.html#travel">Travel</a></li>
-          <li><a href="index.html#registry">Registry</a></li>
-          <li><a href="index.html#faqs">FAQs</a></li>
-          <li>
-            <a href="https://www.theknot.com/us/hector-portela-and-bianca-zavalza-oct-2026/rsvp"
-               target="_blank" rel="noopener">
-              RSVP
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+<header>
+  <div class="header-inner">
+    <div class="site-title">HECTOR &amp; BIANCA</div>
+    <nav>
+      <ul>
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="index.html#schedule">Schedule</a></li>
+        <li><a href="wedding-party.html" class="active">Wedding Party</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
-  <main>
-    <div class="section-heading">
-      <div class="section-eyebrow">Wedding Party</div>
-      <h2 class="section-title">Coming Soon</h2>
+<div class="page-header">
+  <div class="eyebrow">Wedding Party</div>
+  <h1 class="title">The People Closest to Us</h1>
+  <p class="subtitle">
+    We’re lucky to be surrounded by people who have shaped our lives and our story.
+  </p>
+</div>
+
+<section class="party-section">
+  <div class="party-label">Bridal Party</div>
+  <div class="party-title">Bianca’s Side</div>
+
+  <div class="names">
+    <div>
+      Alley Murphy
+      <div class="role">Maid of Honor</div>
     </div>
 
-    <div class="card">
-      We’re still finalizing the wedding party details. Check back soon for photos, names, and a little intro for each of our favorite people.
-      <div class="hint">
-      
-      </div>
+    <div>
+      Hannah Pelifini
+      <div class="role">Bridesmaid</div>
     </div>
-  </main>
 
-  <footer>
-    <div>With love, <span>Hector &amp; Bianca</span></div>
-    <div>October 3, 2026 • Napa, California</div>
-  </footer>
+    <div>
+      Jessica Jenkins
+      <div class="role">Bridesmaid</div>
+    </div>
+
+    <div>
+      Karina Arias
+      <div class="role">Bridesmaid</div>
+    </div>
+
+    <div>
+      Ariel Kirk
+      <div class="role">Bridesmaid</div>
+    </div>
+
+    <div>
+      Becca Cadloni
+      <div class="role">Bridesmaid</div>
+    </div>
+  </div>
+</section>
+
+<section class="party-section">
+  <div class="party-label">Groom’s Party</div>
+  <div class="party-title">Hector’s Side</div>
+
+  <div class="names">
+    <div>
+      Tony Mora
+      <div class="role">Best Man</div>
+    </div>
+
+    <div>
+      Steven Correa
+      <div class="role">Groomsman</div>
+    </div>
+
+    <div>
+      Terrence Aguas
+      <div class="role">Groomsman</div>
+    </div>
+
+    <div>
+      Andre Vasquez
+      <div class="role">Groomsman</div>
+    </div>
+
+    <div>
+      Jeremy Burney
+      <div class="role">Groomsman</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>With love, <span>Hector & Bianca</span></div>
+  <div>October 3, 2026 • Napa, California</div>
+</footer>
 
 </body>
 </html>
